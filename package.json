@@ -1,0 +1,28 @@
+{
+  "name": "fsa-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run --watch src/main.ts",
+    "build": "bun build src/main.ts --outdir dist --target bun",
+    "start": "bun run dist/main.js",
+    "test": "bun test",
+    "lint": "biome check src",
+    "format": "biome format --write src"
+  },
+  "dependencies": {
+    "hono": "^4.6.0",
+    "mongoose": "^8.8.0",
+    "jose": "^5.9.0",
+    "argon2": "^0.41.0",
+    "valibot": "^0.42.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.0",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
