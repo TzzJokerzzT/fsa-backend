@@ -4,6 +4,12 @@
   "installCommand": "bun install",
   "buildCommand": "bun run vercel-build",
   "outputDirectory": "public",
+  "builds": [
+    {
+      "src": "api/index.js",
+      "use": "@vercel/node"
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",

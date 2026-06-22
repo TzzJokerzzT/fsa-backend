@@ -8,12 +8,24 @@ const env = loadEnv();
 // The real Hono application with all routes configured
 const realApp = createApp(env);
 
-// Vercel wrapper: handles the __path query parameter from rewrites.
-// Vercel rewrites /api/* to /api/index?__path=<subpath>, so we recover
-// the original path and route internally.
+// Vercel wrapper: handles the __path query parameter from rewrites
 const vercelApp = new Hono();
 
+// Lazy database connection — avoids blocking module initialization on Vercel.
+// connectDatabase() is idempotent (has internal isConnected guard).
+let dbInit: Promise<void> | null = null;
+
 vercelApp.use("*", async (c, next) => {
+  // Connect to DB on first request (lazy init)
+  if (!dbInit) {
+    dbInit = connectDatabase(env.MONGODB_URI).catch((err) => {
+      console.error("DB connection failed:", err);
+      dbInit = null;
+      throw err;
+    });
+  }
+  await dbInit;
+
   const pathParam = c.req.query("__path");
 
   if (pathParam !== undefined) {
@@ -35,8 +47,5 @@ vercelApp.use("*", async (c, next) => {
 
 // Fallback: for requests that reach the function directly (no rewrite)
 vercelApp.route("*", realApp);
-
-// Connect to database on cold start
-await connectDatabase(env.MONGODB_URI);
 
 export default vercelApp;
