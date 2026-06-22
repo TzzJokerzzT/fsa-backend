@@ -11,6 +11,7 @@ const app = createApp(env);
 await connectDatabase(env.MONGODB_URI);
 
 // Vercel catch-all: handles all requests under /api/*
+// Built via scripts/vercel-build.ts → output to api/[...path].js
 // Vercel's file-based routing sends /api/* to this handler automatically.
 // Hono receives the full request URL and matches routes at /api/auth, /api/users, etc.
 export default app;

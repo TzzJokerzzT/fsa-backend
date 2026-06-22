@@ -1,14 +1,19 @@
-import { unlinkSync, mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, writeFileSync, renameSync } from "node:fs";
 
 console.log("🔨 Building serverless function for Vercel (Node.js target)...");
 
+// Ensure output directories exist
+mkdirSync("api", { recursive: true });
+mkdirSync("dist", { recursive: true });
+
 // Use Bun's build API directly — no shell, no glob interpretation
+// Source is in src/ (Vercel won't try to compile it)
+// Output goes to api/[...path].js (Vercel deploys the .js as catch-all)
 const result = await Bun.build({
-  entrypoints: ["api/[...path].ts"],
-  outdir: "api",
+  entrypoints: ["src/vercel-entry.ts"],
+  outdir: "dist",
   target: "node",
   format: "esm",
-  naming: "[dir]/[name].[ext]",
 });
 
 if (!result.success) {
@@ -18,12 +23,9 @@ if (!result.success) {
   process.exit(1);
 }
 
-console.log("✅ Build successful");
-
-// Remove the TypeScript source so Vercel doesn't try to compile it
-// (Vercel's own TypeScript compilation doesn't resolve tsconfig path aliases)
-unlinkSync("api/[...path].ts");
-console.log("   Removed source TypeScript file");
+// Rename built file to Vercel's catch-all path
+renameSync("dist/vercel-entry.js", "api/[...path].js");
+console.log("✅ Build successful → api/[...path].js");
 
 // Create placeholder to satisfy Vercel's outputDirectory requirement
 mkdirSync("public", { recursive: true });
