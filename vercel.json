@@ -2,6 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "installCommand": "bun install",
+  "buildCommand": "mkdir -p public",
+  "outputDirectory": "public",
   "rewrites": [
     {
       "source": "/(.*)",
