@@ -7,11 +7,11 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/index?__path=$1"
+      "dest": "/api?__path=$1"
     },
     {
       "src": "/",
-      "dest": "/api/index?__path="
+      "dest": "/api?__path="
     }
   ]
 }
