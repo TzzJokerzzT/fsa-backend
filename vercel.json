@@ -3,7 +3,7 @@
   "version": 2,
   "installCommand": "bun install",
   "buildCommand": "bun run vercel-build",
-  "outputDirectory": ".",
+  "outputDirectory": "public",
   "routes": [
     {
       "src": "/api/(.*)",

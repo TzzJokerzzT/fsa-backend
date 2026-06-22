@@ -1,4 +1,4 @@
-import { mkdirSync, renameSync, existsSync, statSync } from "node:fs";
+import { mkdirSync, renameSync, existsSync, statSync, writeFileSync } from "node:fs";
 
 console.log("🔨 Building serverless function for Vercel (Node.js target)...");
 
@@ -32,3 +32,9 @@ if (!existsSync("api/index.js")) {
 
 const size = statSync("api/index.js").size;
 console.log(`✅ Build successful → api/index.js (${(size / 1024).toFixed(0)} KB)`);
+
+// Create placeholder to satisfy Vercel's outputDirectory requirement
+// (public/ is for static files only — api/ functions are NOT affected)
+mkdirSync("public", { recursive: true });
+writeFileSync("public/.placeholder", "ok");
+console.log("   Created public/.placeholder");
