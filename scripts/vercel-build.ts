@@ -23,9 +23,10 @@ if (!result.success) {
   process.exit(1);
 }
 
-// Rename built file to Vercel's catch-all path
-renameSync("dist/vercel-entry.js", "api/[...path].js");
-console.log("✅ Build successful → api/[...path].js");
+// Rename built file to Vercel's handler path (no brackets — Vercel doesn't support
+// bracket catch-all naming for pre-built .js files)
+renameSync("dist/vercel-entry.js", "api/index.js");
+console.log("✅ Build successful → api/index.js");
 
 // Create placeholder to satisfy Vercel's outputDirectory requirement
 mkdirSync("public", { recursive: true });
