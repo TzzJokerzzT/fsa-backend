@@ -4,11 +4,6 @@
   "installCommand": "bun install",
   "buildCommand": "bun run vercel-build",
   "outputDirectory": "public",
-  "functions": {
-    "api/index.js": {
-      "memory": 512
-    }
-  },
   "rewrites": [
     {
       "source": "/api/(.*)",
