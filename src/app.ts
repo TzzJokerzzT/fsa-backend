@@ -1,16 +1,16 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
-import type { Env } from "@/shared/config/env.ts";
-import { securityHeaders } from "@/infrastructure/http/middlewares/security.middleware.ts";
-import { apiRateLimit } from "@/infrastructure/http/middlewares/rateLimiter.middleware.ts";
-import { createAuthRoutes } from "@/infrastructure/http/routes/auth.routes.ts";
-import { createUserRoutes } from "@/infrastructure/http/routes/user.routes.ts";
-import { createArchitectureRoutes } from "@/infrastructure/http/routes/architecture.routes.ts";
-import { MongoUserRepository } from "@/infrastructure/persistence/mongodb/repositories/MongoUserRepository.ts";
-import { MongoArchitectureRepository } from "@/infrastructure/persistence/mongodb/repositories/MongoArchitectureRepository.ts";
-import { PasswordService } from "@/infrastructure/security/argon2.ts";
-import { JwtService } from "@/infrastructure/security/jwt.ts";
+import type { Env } from "./shared/config/env.ts";
+import { securityHeaders } from "./infrastructure/http/middlewares/security.middleware.ts";
+import { apiRateLimit } from "./infrastructure/http/middlewares/rateLimiter.middleware.ts";
+import { createAuthRoutes } from "./infrastructure/http/routes/auth.routes.ts";
+import { createUserRoutes } from "./infrastructure/http/routes/user.routes.ts";
+import { createArchitectureRoutes } from "./infrastructure/http/routes/architecture.routes.ts";
+import { MongoUserRepository } from "./infrastructure/persistence/mongodb/repositories/MongoUserRepository.ts";
+import { MongoArchitectureRepository } from "./infrastructure/persistence/mongodb/repositories/MongoArchitectureRepository.ts";
+import { PasswordService } from "./infrastructure/security/argon2.ts";
+import { JwtService } from "./infrastructure/security/jwt.ts";
 
 export function createApp(env: Env) {
   const app = new Hono();

@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "bun run --watch src/main.ts",
     "build": "bun build src/main.ts --outdir dist --target bun",
-    "vercel-build": "bun run scripts/vercel-build.ts",
     "start": "bun run dist/main.js",
     "test": "bun test",
     "lint": "biome check src",

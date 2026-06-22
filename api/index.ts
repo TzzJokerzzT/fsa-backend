@@ -1,7 +1,7 @@
 import { Hono } from "hono";
-import { loadEnv } from "@/shared/config/env.ts";
-import { connectDatabase } from "@/infrastructure/persistence/mongodb/connection.ts";
-import { createApp } from "@/app.ts";
+import { loadEnv } from "../src/shared/config/env.ts";
+import { connectDatabase } from "../src/infrastructure/persistence/mongodb/connection.ts";
+import { createApp } from "../src/app.ts";
 
 const env = loadEnv();
 
