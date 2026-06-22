@@ -2,12 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "installCommand": "bun install",
-  "buildCommand": "",
-  "functions": {
-    "api/index.ts": {
-      "includeFiles": "src/**"
-    }
-  },
+  "buildCommand": "bun build api/index.ts --outfile api/index.js --target node --format esm",
   "rewrites": [
     {
       "source": "/api/(.*)",
