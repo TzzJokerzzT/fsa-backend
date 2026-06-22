@@ -1,7 +1,7 @@
-import type { ArchitectureRepository } from '@/domain/repositories/ArchitectureRepository.ts';
-import type { PaginationInput } from '@/shared/validation/schemas/architecture.schema.ts';
-import type { ArchitectureListDTO } from '@/application/dtos/architecture.dto.ts';
-import { type Result, ok } from '@/shared/utils/result.ts';
+import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository.ts';
+import type { PaginationInput } from '../../../shared/validation/schemas/architecture.schema.ts';
+import type { ArchitectureListDTO } from '../../../application/dtos/architecture.dto.ts';
+import { type Result, ok } from '../../../shared/utils/result.ts';
 
 export class ListUserArchitectures {
   constructor(private architectureRepository: ArchitectureRepository) {}

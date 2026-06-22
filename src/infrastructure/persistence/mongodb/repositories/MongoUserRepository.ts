@@ -1,5 +1,5 @@
-import { User } from '@/domain/entities/User.ts';
-import type { UserRepository } from '@/domain/repositories/UserRepository.ts';
+import { User } from '../../../../domain/entities/User.ts';
+import type { UserRepository } from '../../../../domain/repositories/UserRepository.ts';
 import { UserModel } from '../models/UserModel.ts';
 
 export class MongoUserRepository implements UserRepository {

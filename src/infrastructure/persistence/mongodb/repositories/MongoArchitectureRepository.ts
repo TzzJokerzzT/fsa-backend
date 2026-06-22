@@ -1,9 +1,9 @@
-import { Architecture } from '@/domain/entities/Architecture.ts';
+import { Architecture } from '../../../../domain/entities/Architecture.ts';
 import type {
   ArchitectureRepository,
   PaginationOptions,
   PaginatedResult,
-} from '@/domain/repositories/ArchitectureRepository.ts';
+} from '../../../../domain/repositories/ArchitectureRepository.ts';
 import { ArchitectureModel } from '../models/ArchitectureModel.ts';
 
 export class MongoArchitectureRepository implements ArchitectureRepository {

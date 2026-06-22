@@ -1,5 +1,5 @@
-import { ValidationError } from '@/domain/errors/index.ts';
-import { isValidObjectId } from '@/shared/utils/id.ts';
+import { ValidationError } from '../../domain/errors/index.ts';
+import { isValidObjectId } from '../../shared/utils/id.ts';
 
 /**
  * UserId value object

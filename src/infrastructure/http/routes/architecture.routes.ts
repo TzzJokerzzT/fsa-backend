@@ -5,9 +5,9 @@ import { authMiddleware } from '../middlewares/auth.middleware.ts';
 import {
   CreateArchitectureSchema,
   UpdateArchitectureSchema,
-} from '@/shared/validation/schemas/architecture.schema.ts';
-import type { ArchitectureRepository } from '@/domain/repositories/ArchitectureRepository.ts';
-import type { JwtService } from '@/application/services/TokenService.ts';
+} from '../../../shared/validation/schemas/architecture.schema.ts';
+import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository.ts';
+import type { JwtService } from '../../../application/services/TokenService.ts';
 
 export function createArchitectureRoutes(
   architectureRepository: ArchitectureRepository,

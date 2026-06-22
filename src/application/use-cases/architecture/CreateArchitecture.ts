@@ -1,8 +1,8 @@
-import type { ArchitectureRepository } from '@/domain/repositories/ArchitectureRepository.ts';
-import type { CreateArchitectureInput } from '@/shared/validation/schemas/architecture.schema.ts';
-import type { ArchitectureDTO } from '@/application/dtos/architecture.dto.ts';
-import { type Result, ok } from '@/shared/utils/result.ts';
-import { Architecture } from '@/domain/entities/Architecture.ts';
+import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository.ts';
+import type { CreateArchitectureInput } from '../../../shared/validation/schemas/architecture.schema.ts';
+import type { ArchitectureDTO } from '../../../application/dtos/architecture.dto.ts';
+import { type Result, ok } from '../../../shared/utils/result.ts';
+import { Architecture } from '../../../domain/entities/Architecture.ts';
 
 export class CreateArchitecture {
   constructor(private architectureRepository: ArchitectureRepository) {}

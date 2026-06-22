@@ -1,5 +1,5 @@
-import type { UserRepository } from '@/domain/repositories/UserRepository.ts';
-import { type Result, ok, err } from '@/shared/utils/result.ts';
+import type { UserRepository } from '../../../domain/repositories/UserRepository.ts';
+import { type Result, ok, err } from '../../../shared/utils/result.ts';
 
 export class LogoutUser {
   constructor(private userRepository: UserRepository) {}

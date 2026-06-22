@@ -1,5 +1,5 @@
-import type { Architecture } from '@/domain/entities/Architecture.ts';
-import type { ArchitectureType } from '@/shared/validation/schemas/architecture.schema.ts';
+import type { Architecture } from '../../domain/entities/Architecture.ts';
+import type { ArchitectureType } from '../../shared/validation/schemas/architecture.schema.ts';
 
 export interface ArchitectureDTO {
   id: string;

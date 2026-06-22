@@ -1,5 +1,5 @@
-import type { ArchitectureRepository } from '@/domain/repositories/ArchitectureRepository.ts';
-import { type Result, ok, err } from '@/shared/utils/result.ts';
+import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository.ts';
+import { type Result, ok, err } from '../../../shared/utils/result.ts';
 
 export class DeleteArchitecture {
   constructor(private architectureRepository: ArchitectureRepository) {}

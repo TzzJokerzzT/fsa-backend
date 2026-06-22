@@ -1,8 +1,8 @@
-import type { UserRepository } from '@/domain/repositories/UserRepository.ts';
-import type { PasswordService } from '@/application/services/PasswordService.ts';
-import type { UpdateUserInput } from '@/shared/validation/schemas/user.schema.ts';
-import type { UserProfileDTO } from '@/application/dtos/user.dto.ts';
-import { type Result, ok, err } from '@/shared/utils/result.ts';
+import type { UserRepository } from '../../../domain/repositories/UserRepository.ts';
+import type { PasswordService } from '../../../application/services/PasswordService.ts';
+import type { UpdateUserInput } from '../../../shared/validation/schemas/user.schema.ts';
+import type { UserProfileDTO } from '../../../application/dtos/user.dto.ts';
+import { type Result, ok, err } from '../../../shared/utils/result.ts';
 
 export class UpdateUser {
   constructor(

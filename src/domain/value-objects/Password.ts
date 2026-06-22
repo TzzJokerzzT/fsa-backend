@@ -1,4 +1,4 @@
-import { ValidationError } from '@/domain/errors/index.ts';
+import { ValidationError } from '../../domain/errors/index.ts';
 
 /**
  * Password value object with OWASP validation rules

@@ -7,10 +7,10 @@ import {
   RegisterSchema,
   LoginSchema,
   RefreshTokenSchema,
-} from '@/shared/validation/schemas/auth.schema.ts';
-import type { UserRepository } from '@/domain/repositories/UserRepository.ts';
-import type { PasswordService } from '@/application/services/PasswordService.ts';
-import type { JwtService } from '@/application/services/TokenService.ts';
+} from '../../../shared/validation/schemas/auth.schema.ts';
+import type { UserRepository } from '../../../domain/repositories/UserRepository.ts';
+import type { PasswordService } from '../../../application/services/PasswordService.ts';
+import type { JwtService } from '../../../application/services/TokenService.ts';
 
 export function createAuthRoutes(
   userRepository: UserRepository,

@@ -2,8 +2,8 @@ import mongoose, { Schema, type Document } from 'mongoose';
 import type {
   ArchitectureNode,
   ArchitectureEdge,
-} from '@/domain/entities/Architecture.ts';
-import type { ArchitectureType } from '@/shared/validation/schemas/architecture.schema.ts';
+} from '../../../../domain/entities/Architecture.ts';
+import type { ArchitectureType } from '../../../../shared/validation/schemas/architecture.schema.ts';
 
 export interface IArchitecture extends Document {
   _id: mongoose.Types.ObjectId;
