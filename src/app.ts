@@ -35,7 +35,7 @@ export function createApp(env: Env) {
   app.use("/api/*", apiRateLimit);
 
   // Health check
-  app.get("/health", (c) => c.json({ status: "ok" }));
+  app.get("/api/health", (c) => c.json({ status: "ok" }));
 
   // Initialize services
   const passwordService = new PasswordService();

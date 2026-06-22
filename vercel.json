@@ -2,12 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "installCommand": "bun install",
-  "buildCommand": "mkdir -p public",
+  "buildCommand": "mkdir -p public && echo 'ok' > public/.placeholder",
   "outputDirectory": "public",
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/api"
+      "source": "/",
+      "destination": "/api/health"
     }
   ]
 }

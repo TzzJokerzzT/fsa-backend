@@ -10,6 +10,7 @@ const app = createApp(env);
 // so warm starts reuse the existing connection.
 await connectDatabase(env.MONGODB_URI);
 
-// Vercel serverless expects a default export with a fetch handler.
-// Hono's app satisfies the FetchEvent interface directly.
+// Vercel catch-all: handles all requests under /api/*
+// Vercel's file-based routing sends /api/* to this handler automatically.
+// Hono receives the full request URL and matches routes at /api/auth, /api/users, etc.
 export default app;
