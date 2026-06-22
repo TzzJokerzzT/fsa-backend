@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "bun run --watch src/main.ts",
     "build": "bun build src/main.ts --outdir dist --target bun",
+    "vercel-build": "bun build 'api/[...path].ts' --outfile 'api/[...path].js' --target node --format esm && mkdir -p public && echo 'ok' > public/.placeholder",
     "start": "bun run dist/main.js",
     "test": "bun test",
     "lint": "biome check src",

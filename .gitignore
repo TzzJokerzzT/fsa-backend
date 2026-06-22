@@ -5,6 +5,7 @@ node_modules
 out
 dist
 public
+api/\[...path\].js
 *.tgz
 
 # code coverage
