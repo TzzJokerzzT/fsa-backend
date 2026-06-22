@@ -29,13 +29,13 @@ export function loadEnv(): Env {
   });
 
   if (!result.success) {
-    console.error('Environment validation failed:');
-    for (const issue of result.issues) {
-      console.error(
-        `  - ${issue.path?.map((p) => p.key).join('.') ?? 'unknown'}: ${issue.message}`
-      );
-    }
-    process.exit(1);
+    const messages = result.issues.map(
+      (issue) =>
+        `${issue.path?.map((p) => p.key).join('.') ?? 'unknown'}: ${issue.message}`,
+    );
+    const detail = messages.join('; ');
+    console.error(`Environment validation failed: ${detail}`);
+    throw new Error(`Missing or invalid environment variables: ${detail}`);
   }
 
   return result.output;
