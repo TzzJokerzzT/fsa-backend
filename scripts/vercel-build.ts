@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync, renameSync } from "node:fs";
+import { mkdirSync, renameSync } from "node:fs";
 
 console.log("🔨 Building serverless function for Vercel (Node.js target)...");
 
@@ -27,9 +27,3 @@ if (!result.success) {
 // bracket catch-all naming for pre-built .js files)
 renameSync("dist/vercel-entry.js", "api/index.js");
 console.log("✅ Build successful → api/index.js");
-
-// Create placeholder to satisfy Vercel's outputDirectory requirement
-mkdirSync("public", { recursive: true });
-writeFileSync("public/.placeholder", "ok");
-console.log("   Created public/.placeholder");
-console.log("✅ Vercel build completed");
