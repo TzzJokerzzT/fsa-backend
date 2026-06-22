@@ -1,4 +1,4 @@
-import { mkdirSync, renameSync } from "node:fs";
+import { mkdirSync, renameSync, existsSync, statSync } from "node:fs";
 
 console.log("🔨 Building serverless function for Vercel (Node.js target)...");
 
@@ -7,8 +7,6 @@ mkdirSync("api", { recursive: true });
 mkdirSync("dist", { recursive: true });
 
 // Use Bun's build API directly — no shell, no glob interpretation
-// Source is in src/ (Vercel won't try to compile it)
-// Output goes to api/[...path].js (Vercel deploys the .js as catch-all)
 const result = await Bun.build({
   entrypoints: ["src/vercel-entry.ts"],
   outdir: "dist",
@@ -23,7 +21,14 @@ if (!result.success) {
   process.exit(1);
 }
 
-// Rename built file to Vercel's handler path (no brackets — Vercel doesn't support
-// bracket catch-all naming for pre-built .js files)
+// Rename built file to Vercel's handler path
 renameSync("dist/vercel-entry.js", "api/index.js");
-console.log("✅ Build successful → api/index.js");
+
+// Verify the file was created
+if (!existsSync("api/index.js")) {
+  console.error("❌ api/index.js was not created!");
+  process.exit(1);
+}
+
+const size = statSync("api/index.js").size;
+console.log(`✅ Build successful → api/index.js (${(size / 1024).toFixed(0)} KB)`);
