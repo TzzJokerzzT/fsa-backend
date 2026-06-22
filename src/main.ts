@@ -1,6 +1,6 @@
-import { loadEnv } from "./shared/config/env.ts";
-import { connectDatabase } from "./infrastructure/persistence/mongodb/connection.ts";
-import { createApp } from "./app.ts";
+import { loadEnv } from './shared/config/env';
+import { connectDatabase } from './infrastructure/persistence/mongodb/connection';
+import { createApp } from './app';
 
 const env = loadEnv();
 const app = createApp(env);

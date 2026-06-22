@@ -1,2 +1,2 @@
-export { JwtService } from '../../infrastructure/security/jwt.ts';
-export type { TokenPayload } from '../../infrastructure/security/jwt.ts';
+export { JwtService } from '../../infrastructure/security/jwt';
+export type { TokenPayload } from '../../infrastructure/security/jwt';

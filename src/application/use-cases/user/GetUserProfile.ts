@@ -1,6 +1,6 @@
-import type { UserRepository } from '../../../domain/repositories/UserRepository.ts';
-import type { UserProfileDTO } from '../../../application/dtos/user.dto.ts';
-import { type Result, ok, err } from '../../../shared/utils/result.ts';
+import type { UserRepository } from '../../../domain/repositories/UserRepository';
+import type { UserProfileDTO } from '../../../application/dtos/user.dto';
+import { type Result, ok, err } from '../../../shared/utils/result';
 
 export class GetUserProfile {
   constructor(private userRepository: UserRepository) {}

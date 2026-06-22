@@ -1,9 +1,9 @@
-import type { UserRepository } from '../../../domain/repositories/UserRepository.ts';
-import type { PasswordService } from '../../../application/services/PasswordService.ts';
-import type { JwtService } from '../../../application/services/TokenService.ts';
-import type { RefreshTokenInput } from '../../../shared/validation/schemas/auth.schema.ts';
-import type { TokensDTO } from '../../../application/dtos/auth.dto.ts';
-import { type Result, ok, err } from '../../../shared/utils/result.ts';
+import type { UserRepository } from '../../../domain/repositories/UserRepository';
+import type { PasswordService } from '../../../application/services/PasswordService';
+import type { JwtService } from '../../../application/services/TokenService';
+import type { RefreshTokenInput } from '../../../shared/validation/schemas/auth.schema';
+import type { TokensDTO } from '../../../application/dtos/auth.dto';
+import { type Result, ok, err } from '../../../shared/utils/result';
 
 export class RefreshToken {
   constructor(

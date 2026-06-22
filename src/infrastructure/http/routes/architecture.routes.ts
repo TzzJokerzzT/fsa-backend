@@ -1,13 +1,13 @@
 import { Hono } from 'hono';
-import { ArchitectureController } from '../controllers/ArchitectureController.ts';
-import { validate } from '../middlewares/validation.middleware.ts';
-import { authMiddleware } from '../middlewares/auth.middleware.ts';
+import { ArchitectureController } from '../controllers/ArchitectureController';
+import { validate } from '../middlewares/validation.middleware';
+import { authMiddleware } from '../middlewares/auth.middleware';
 import {
   CreateArchitectureSchema,
   UpdateArchitectureSchema,
-} from '../../../shared/validation/schemas/architecture.schema.ts';
-import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository.ts';
-import type { JwtService } from '../../../application/services/TokenService.ts';
+} from '../../../shared/validation/schemas/architecture.schema';
+import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository';
+import type { JwtService } from '../../../application/services/TokenService';
 
 export function createArchitectureRoutes(
   architectureRepository: ArchitectureRepository,

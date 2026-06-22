@@ -5,4 +5,4 @@ export {
   ConflictError,
   UnauthorizedError,
   ForbiddenError,
-} from './DomainError.ts';
+} from './DomainError';

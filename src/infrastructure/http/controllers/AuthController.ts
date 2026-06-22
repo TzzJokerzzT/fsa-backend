@@ -1,17 +1,17 @@
 import type { Context } from 'hono';
-import { RegisterUser } from '../../../application/use-cases/auth/RegisterUser.ts';
-import { LoginUser } from '../../../application/use-cases/auth/LoginUser.ts';
-import { RefreshToken } from '../../../application/use-cases/auth/RefreshToken.ts';
-import { LogoutUser } from '../../../application/use-cases/auth/LogoutUser.ts';
-import type { UserRepository } from '../../../domain/repositories/UserRepository.ts';
-import type { PasswordService } from '../../../application/services/PasswordService.ts';
-import type { JwtService } from '../../../application/services/TokenService.ts';
-import { getValidatedData } from '../middlewares/validation.middleware.ts';
+import { RegisterUser } from '../../../application/use-cases/auth/RegisterUser';
+import { LoginUser } from '../../../application/use-cases/auth/LoginUser';
+import { RefreshToken } from '../../../application/use-cases/auth/RefreshToken';
+import { LogoutUser } from '../../../application/use-cases/auth/LogoutUser';
+import type { UserRepository } from '../../../domain/repositories/UserRepository';
+import type { PasswordService } from '../../../application/services/PasswordService';
+import type { JwtService } from '../../../application/services/TokenService';
+import { getValidatedData } from '../middlewares/validation.middleware';
 import type {
   RegisterInput,
   LoginInput,
   RefreshTokenInput,
-} from '../../../shared/validation/schemas/auth.schema.ts';
+} from '../../../shared/validation/schemas/auth.schema';
 
 export class AuthController {
   private registerUser: RegisterUser;

@@ -1,18 +1,18 @@
 import type { Context } from 'hono';
-import { CreateArchitecture } from '../../../application/use-cases/architecture/CreateArchitecture.ts';
-import { UpdateArchitecture } from '../../../application/use-cases/architecture/UpdateArchitecture.ts';
-import { DeleteArchitecture } from '../../../application/use-cases/architecture/DeleteArchitecture.ts';
-import { GetArchitecture } from '../../../application/use-cases/architecture/GetArchitecture.ts';
-import { ListUserArchitectures } from '../../../application/use-cases/architecture/ListUserArchitectures.ts';
-import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository.ts';
-import { getValidatedData } from '../middlewares/validation.middleware.ts';
+import { CreateArchitecture } from '../../../application/use-cases/architecture/CreateArchitecture';
+import { UpdateArchitecture } from '../../../application/use-cases/architecture/UpdateArchitecture';
+import { DeleteArchitecture } from '../../../application/use-cases/architecture/DeleteArchitecture';
+import { GetArchitecture } from '../../../application/use-cases/architecture/GetArchitecture';
+import { ListUserArchitectures } from '../../../application/use-cases/architecture/ListUserArchitectures';
+import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository';
+import { getValidatedData } from '../middlewares/validation.middleware';
 import type {
   CreateArchitectureInput,
   UpdateArchitectureInput,
   PaginationInput,
-} from '../../../shared/validation/schemas/architecture.schema.ts';
+} from '../../../shared/validation/schemas/architecture.schema';
 import * as v from 'valibot';
-import { PaginationSchema } from '../../../shared/validation/schemas/architecture.schema.ts';
+import { PaginationSchema } from '../../../shared/validation/schemas/architecture.schema';
 
 export class ArchitectureController {
   private createArchitecture: CreateArchitecture;

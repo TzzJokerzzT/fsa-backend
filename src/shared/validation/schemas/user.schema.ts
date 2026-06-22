@@ -1,5 +1,5 @@
 import * as v from 'valibot';
-import { NameSchema, PasswordSchema } from './auth.schema.ts';
+import { NameSchema, PasswordSchema } from './auth.schema';
 
 export const UpdateUserSchema = v.pipe(
   v.object({

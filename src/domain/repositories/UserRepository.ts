@@ -1,4 +1,4 @@
-import type { User } from '../../domain/entities/User.ts';
+import type { User } from '../../domain/entities/User';
 
 /**
  * User repository interface (port)

@@ -1,7 +1,7 @@
-import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository.ts';
-import type { UpdateArchitectureInput } from '../../../shared/validation/schemas/architecture.schema.ts';
-import type { ArchitectureDTO } from '../../../application/dtos/architecture.dto.ts';
-import { type Result, ok, err } from '../../../shared/utils/result.ts';
+import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository';
+import type { UpdateArchitectureInput } from '../../../shared/validation/schemas/architecture.schema';
+import type { ArchitectureDTO } from '../../../application/dtos/architecture.dto';
+import { type Result, ok, err } from '../../../shared/utils/result';
 
 export class UpdateArchitecture {
   constructor(private architectureRepository: ArchitectureRepository) {}

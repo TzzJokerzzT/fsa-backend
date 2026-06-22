@@ -1,16 +1,16 @@
 import { Hono } from 'hono';
-import { AuthController } from '../controllers/AuthController.ts';
-import { validate } from '../middlewares/validation.middleware.ts';
-import { authMiddleware } from '../middlewares/auth.middleware.ts';
-import { authRateLimit } from '../middlewares/rateLimiter.middleware.ts';
+import { AuthController } from '../controllers/AuthController';
+import { validate } from '../middlewares/validation.middleware';
+import { authMiddleware } from '../middlewares/auth.middleware';
+import { authRateLimit } from '../middlewares/rateLimiter.middleware';
 import {
   RegisterSchema,
   LoginSchema,
   RefreshTokenSchema,
-} from '../../../shared/validation/schemas/auth.schema.ts';
-import type { UserRepository } from '../../../domain/repositories/UserRepository.ts';
-import type { PasswordService } from '../../../application/services/PasswordService.ts';
-import type { JwtService } from '../../../application/services/TokenService.ts';
+} from '../../../shared/validation/schemas/auth.schema';
+import type { UserRepository } from '../../../domain/repositories/UserRepository';
+import type { PasswordService } from '../../../application/services/PasswordService';
+import type { JwtService } from '../../../application/services/TokenService';
 
 export function createAuthRoutes(
   userRepository: UserRepository,

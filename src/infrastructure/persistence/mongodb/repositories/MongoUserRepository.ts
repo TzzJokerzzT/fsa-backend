@@ -1,6 +1,6 @@
-import { User } from '../../../../domain/entities/User.ts';
-import type { UserRepository } from '../../../../domain/repositories/UserRepository.ts';
-import { UserModel } from '../models/UserModel.ts';
+import { User } from '../../../../domain/entities/User';
+import type { UserRepository } from '../../../../domain/repositories/UserRepository';
+import { UserModel } from '../models/UserModel';
 
 export class MongoUserRepository implements UserRepository {
   async findById(id: string): Promise<User | null> {

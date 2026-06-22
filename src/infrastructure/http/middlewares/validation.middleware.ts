@@ -1,6 +1,6 @@
 import type { MiddlewareHandler, Context } from 'hono';
 import * as v from 'valibot';
-import { sanitizeInput } from './security.middleware.ts';
+import { sanitizeInput } from './security.middleware';
 
 type ValidationTarget = 'json' | 'query' | 'param';
 

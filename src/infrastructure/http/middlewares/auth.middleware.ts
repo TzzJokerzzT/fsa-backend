@@ -1,5 +1,5 @@
 import type { MiddlewareHandler } from 'hono';
-import type { JwtService } from '../../../infrastructure/security/jwt.ts';
+import type { JwtService } from '../../../infrastructure/security/jwt';
 
 declare module 'hono' {
   interface ContextVariableMap {

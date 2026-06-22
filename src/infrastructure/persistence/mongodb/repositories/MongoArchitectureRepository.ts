@@ -1,10 +1,10 @@
-import { Architecture } from '../../../../domain/entities/Architecture.ts';
+import { Architecture } from '../../../../domain/entities/Architecture';
 import type {
   ArchitectureRepository,
   PaginationOptions,
   PaginatedResult,
-} from '../../../../domain/repositories/ArchitectureRepository.ts';
-import { ArchitectureModel } from '../models/ArchitectureModel.ts';
+} from '../../../../domain/repositories/ArchitectureRepository';
+import { ArchitectureModel } from '../models/ArchitectureModel';
 
 export class MongoArchitectureRepository implements ArchitectureRepository {
   async findById(id: string): Promise<Architecture | null> {

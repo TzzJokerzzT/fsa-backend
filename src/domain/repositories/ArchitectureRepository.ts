@@ -1,4 +1,4 @@
-import type { Architecture } from '../../domain/entities/Architecture.ts';
+import type { Architecture } from '../../domain/entities/Architecture';
 
 export interface PaginationOptions {
   page: number;

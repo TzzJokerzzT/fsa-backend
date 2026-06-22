@@ -1,4 +1,4 @@
-import { generateId } from '../../shared/utils/id.ts';
+import { generateId } from '../../shared/utils/id';
 
 export interface UserProps {
   id: string;

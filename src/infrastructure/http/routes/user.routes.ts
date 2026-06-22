@@ -1,12 +1,12 @@
 import { Hono } from 'hono';
-import { UserController } from '../controllers/UserController.ts';
-import { validate } from '../middlewares/validation.middleware.ts';
-import { authMiddleware } from '../middlewares/auth.middleware.ts';
-import { UpdateUserSchema } from '../../../shared/validation/schemas/user.schema.ts';
-import type { UserRepository } from '../../../domain/repositories/UserRepository.ts';
-import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository.ts';
-import type { PasswordService } from '../../../application/services/PasswordService.ts';
-import type { JwtService } from '../../../application/services/TokenService.ts';
+import { UserController } from '../controllers/UserController';
+import { validate } from '../middlewares/validation.middleware';
+import { authMiddleware } from '../middlewares/auth.middleware';
+import { UpdateUserSchema } from '../../../shared/validation/schemas/user.schema';
+import type { UserRepository } from '../../../domain/repositories/UserRepository';
+import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository';
+import type { PasswordService } from '../../../application/services/PasswordService';
+import type { JwtService } from '../../../application/services/TokenService';
 
 export function createUserRoutes(
   userRepository: UserRepository,

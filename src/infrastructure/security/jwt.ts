@@ -1,5 +1,5 @@
 import * as jose from 'jose';
-import type { Env } from '../../shared/config/env.ts';
+import type { Env } from '../../shared/config/env';
 
 export interface TokenPayload {
   sub: string; // userId

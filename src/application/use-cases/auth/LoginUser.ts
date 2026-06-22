@@ -1,10 +1,10 @@
-import type { UserRepository } from "../../../domain/repositories/UserRepository.ts";
-import type { PasswordService } from "../../services/PasswordService.ts";
-import type { JwtService } from "../../services/TokenService.ts";
-import type { LoginInput } from "../../../shared/validation/schemas/auth.schema.ts";
-import type { LoginResponseDTO } from "../../dtos/auth.dto.ts";
-import { type Result, ok, err } from "../../../shared/utils/result.ts";
-import { AccountLockout } from "../../../infrastructure/http/middlewares/security.middleware.ts";
+import type { UserRepository } from '../../../domain/repositories/UserRepository';
+import type { PasswordService } from '../../services/PasswordService';
+import type { JwtService } from '../../services/TokenService';
+import type { LoginInput } from '../../../shared/validation/schemas/auth.schema';
+import type { LoginResponseDTO } from '../../dtos/auth.dto';
+import { type Result, ok, err } from '../../../shared/utils/result';
+import { AccountLockout } from '../../../infrastructure/http/middlewares/security.middleware';
 
 export class LoginUser {
   private lockout = new AccountLockout({

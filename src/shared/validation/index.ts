@@ -1,3 +1,3 @@
-export * from './schemas/auth.schema.ts';
-export * from './schemas/user.schema.ts';
-export * from './schemas/architecture.schema.ts';
+export * from './schemas/auth.schema';
+export * from './schemas/user.schema';
+export * from './schemas/architecture.schema';

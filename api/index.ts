@@ -1,7 +1,7 @@
 import { Hono } from "hono";
-import { loadEnv } from "../src/shared/config/env.ts";
-import { connectDatabase } from "../src/infrastructure/persistence/mongodb/connection.ts";
-import { createApp } from "../src/app.ts";
+import { loadEnv } from '../src/shared/config/env';
+import { connectDatabase } from '../src/infrastructure/persistence/mongodb/connection';
+import { createApp } from '../src/app';
 
 // Wrap initialization so missing env vars don't crash the function.
 // Instead, every request returns a clear error until env vars are set.

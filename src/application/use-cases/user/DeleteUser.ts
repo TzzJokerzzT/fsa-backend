@@ -1,6 +1,6 @@
-import type { UserRepository } from '../../../domain/repositories/UserRepository.ts';
-import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository.ts';
-import { type Result, ok, err } from '../../../shared/utils/result.ts';
+import type { UserRepository } from '../../../domain/repositories/UserRepository';
+import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository';
+import { type Result, ok, err } from '../../../shared/utils/result';
 
 export class DeleteUser {
   constructor(

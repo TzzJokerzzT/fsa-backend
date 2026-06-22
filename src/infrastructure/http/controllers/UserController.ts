@@ -1,12 +1,12 @@
 import type { Context } from 'hono';
-import { GetUserProfile } from '../../../application/use-cases/user/GetUserProfile.ts';
-import { UpdateUser } from '../../../application/use-cases/user/UpdateUser.ts';
-import { DeleteUser } from '../../../application/use-cases/user/DeleteUser.ts';
-import type { UserRepository } from '../../../domain/repositories/UserRepository.ts';
-import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository.ts';
-import type { PasswordService } from '../../../application/services/PasswordService.ts';
-import { getValidatedData } from '../middlewares/validation.middleware.ts';
-import type { UpdateUserInput } from '../../../shared/validation/schemas/user.schema.ts';
+import { GetUserProfile } from '../../../application/use-cases/user/GetUserProfile';
+import { UpdateUser } from '../../../application/use-cases/user/UpdateUser';
+import { DeleteUser } from '../../../application/use-cases/user/DeleteUser';
+import type { UserRepository } from '../../../domain/repositories/UserRepository';
+import type { ArchitectureRepository } from '../../../domain/repositories/ArchitectureRepository';
+import type { PasswordService } from '../../../application/services/PasswordService';
+import { getValidatedData } from '../middlewares/validation.middleware';
+import type { UpdateUserInput } from '../../../shared/validation/schemas/user.schema';
 
 export class UserController {
   private getUserProfile: GetUserProfile;

@@ -1,9 +1,9 @@
-import { generateId } from '../../shared/utils/id.ts';
+import { generateId } from '../../shared/utils/id';
 import type {
   ArchitectureType,
   NodeType,
   EdgeType,
-} from '../../shared/validation/schemas/architecture.schema.ts';
+} from '../../shared/validation/schemas/architecture.schema';
 
 export interface Position {
   x: number;
