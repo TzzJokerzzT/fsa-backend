@@ -6,12 +6,8 @@
   "outputDirectory": "public",
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api?__path=$1"
-    },
-    {
-      "source": "/",
-      "destination": "/api?__path="
+      "source": "/(.*)",
+      "destination": "/api"
     }
   ]
 }
