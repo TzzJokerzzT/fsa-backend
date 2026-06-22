@@ -3,8 +3,7 @@ import { loadEnv } from '../src/shared/config/env';
 import { connectDatabase } from '../src/infrastructure/persistence/mongodb/connection';
 import { createApp } from '../src/app';
 
-// Wrap initialization so missing env vars don't crash the function.
-// Instead, every request returns a clear error until env vars are set.
+// Wrap initialization so missing env vars don't crash the function
 let initError: string | null = null;
 let realApp: Hono | null = null;
 let env: ReturnType<typeof loadEnv> | null = null;
@@ -19,24 +18,53 @@ try {
 
 const vercelApp = new Hono();
 
+// Global error handler — prevents any unhandled error from crashing the function
+vercelApp.onError((err, c) => {
+  console.error("Unhandled error:", err);
+  return c.json({
+    error: "Internal server error",
+    message: err instanceof Error ? err.message : String(err),
+  }, 500);
+});
+
 // Lazy database connection
-let dbInit: Promise<void> | null = null;
+let dbConnected = false;
+let dbError: string | null = null;
+
+async function ensureDb(): Promise<void> {
+  if (!env) throw new Error("Env not initialized");
+  if (dbConnected) return;
+  if (dbError) throw new Error(dbError);
+  
+  try {
+    await connectDatabase(env.MONGODB_URI);
+    dbConnected = true;
+  } catch (err) {
+    dbError = err instanceof Error ? err.message : String(err);
+    console.error("DB connection failed:", dbError);
+    throw err;
+  }
+}
 
 vercelApp.use("*", async (c, next) => {
   // If initialization failed, return the error
   if (initError || !realApp || !env) {
-    return c.json({ error: "Server configuration error", detail: initError }, 500);
+    return c.json({
+      error: "Server configuration error",
+      detail: initError,
+      hint: "Check environment variables in Vercel dashboard",
+    }, 500);
   }
 
-  // Connect to DB on first request (lazy init)
-  if (!dbInit) {
-    dbInit = connectDatabase(env.MONGODB_URI).catch((err) => {
-      console.error("DB connection failed:", err);
-      dbInit = null;
-      throw err;
-    });
+  // Connect to DB (lazy, with error handling)
+  try {
+    await ensureDb();
+  } catch (err) {
+    return c.json({
+      error: "Database connection failed",
+      detail: dbError || (err instanceof Error ? err.message : String(err)),
+    }, 503);
   }
-  await dbInit;
 
   const pathParam = c.req.query("__path");
 
