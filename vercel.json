@@ -2,7 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "installCommand": "npm install",
-  "buildCommand": "npx esbuild api/index.ts --bundle --platform=node --target=node20 --format=esm --outfile=api/index.js",
+  "buildCommand": "npx esbuild api/index.ts --bundle --platform=node --target=node20 --format=esm --outfile=api/index.js && mkdir -p public && echo ok > public/.placeholder",
+  "outputDirectory": "public",
   "rewrites": [
     {
       "source": "/api/(.*)",
