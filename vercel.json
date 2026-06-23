@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npx esbuild api/index.ts --bundle --platform=node --target=node20 --outfile=api/index.js --external:argon2 --external:mongoose --format=cjs",
+  "buildCommand": "npx esbuild src/entry.ts --bundle --platform=node --target=node20 --outfile=api/index.js --external:argon2 --external:mongoose --format=cjs",
   "rewrites": [
     {
       "source": "/(.*)",
