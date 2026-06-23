@@ -1,6 +1,6 @@
-import { createApp } from '../src/app';
-import { loadEnv } from '../src/shared/config/env';
-import { connectDatabase } from '../src/infrastructure/persistence/mongodb/connection';
+import { createApp } from './app';
+import { loadEnv } from './shared/config/env';
+import { connectDatabase } from './infrastructure/persistence/mongodb/connection';
 
 let app: ReturnType<typeof createApp> | null = null;
 
