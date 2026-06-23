@@ -34,5 +34,5 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 # Finder (MacOS) folder config
 .DS_Store
 .atl/
-api/index.mjs
+api/index.js
 vercel-fn.js

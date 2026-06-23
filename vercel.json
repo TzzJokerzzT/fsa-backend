@@ -1,6 +1,4 @@
 {
-  "framework": null,
-  "buildCommand": "npx esbuild api/index.ts --bundle --platform=node --target=node20 --outfile=api/index.mjs --external:argon2 --external:mongoose --format=esm",
   "rewrites": [
     {
       "source": "/(.*)",
