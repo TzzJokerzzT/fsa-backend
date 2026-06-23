@@ -25,13 +25,15 @@ export function loadEnv(): Env {
     MONGODB_URI: process.env.MONGODB_URI,
     JWT_ACCESS_SECRET: process.env.JWT_ACCESS_SECRET,
     JWT_REFRESH_SECRET: process.env.JWT_REFRESH_SECRET,
-    CORS_ORIGIN: process.env.CORS_ORIGIN,
+    CORS_ORIGIN:
+      process.env.CORS_ORIGIN ??
+      'https://fsa-eosin.vercel.app,http://localhost:3000',
   });
 
   if (!result.success) {
     const messages = result.issues.map(
       (issue) =>
-        `${issue.path?.map((p) => p.key).join('.') ?? 'unknown'}: ${issue.message}`
+        `${issue.path?.map((p) => p.key).join('.') ?? 'unknown'}: ${issue.message}`,
     );
     const detail = messages.join('; ');
     console.error(`Environment validation failed: ${detail}`);
