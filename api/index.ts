@@ -4,23 +4,13 @@ import { connectDatabase } from '../src/infrastructure/persistence/mongodb/conne
 
 let app: ReturnType<typeof createApp> | null = null;
 
-async function getApp() {
-  if (app) return app;
-  const env = loadEnv();
-  await connectDatabase(env.MONGODB_URI);
-  app = createApp(env);
-  return app;
-}
-
-export default async function handler(request: Request) {
-  try {
-    const hono = await getApp();
-    return hono.fetch(request);
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    return new Response(JSON.stringify({ error: msg }), {
-      status: 500,
-      headers: { 'content-type': 'application/json' },
-    });
-  }
-}
+export default {
+  async fetch(request: Request) {
+    if (!app) {
+      const env = loadEnv();
+      await connectDatabase(env.MONGODB_URI);
+      app = createApp(env);
+    }
+    return app.fetch(request);
+  },
+};

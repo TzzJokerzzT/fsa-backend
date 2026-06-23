@@ -1,18 +1,9 @@
 {
-  "builds": [
+  "buildCommand": "npx esbuild api/index.ts --bundle --platform=node --target=node20 --outfile=api/index.cjs --external:argon2 --external:mongoose --format=cjs",
+  "rewrites": [
     {
-      "src": "api/index.ts",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/index"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/index"
+      "source": "/(.*)",
+      "destination": "/api"
     }
   ]
 }
