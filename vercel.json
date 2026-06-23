@@ -1,7 +1,6 @@
 {
   "framework": null,
-  "outputDirectory": "public",
-  "buildCommand": "mkdir -p public && echo ok > public/.placeholder",
+  "buildCommand": "npx esbuild api/index.ts --bundle --platform=node --target=node20 --outfile=api/index.js --external:argon2 --external:mongoose",
   "rewrites": [
     {
       "source": "/(.*)",
