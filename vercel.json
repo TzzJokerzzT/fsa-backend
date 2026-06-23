@@ -1,19 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
+  "framework": null,
   "installCommand": "npm install",
-  "buildCommand": "npx esbuild src/vercel-entry.ts --bundle --platform=node --target=node20 --format=esm --outfile=vercel-fn.js && mkdir -p public && echo ok > public/.placeholder",
-  "outputDirectory": "public",
-  "builds": [
+  "buildCommand": "npx esbuild src/vercel-entry.ts --bundle --platform=node --target=node20 --format=esm --outfile=api/index.js",
+  "rewrites": [
     {
-      "src": "vercel-fn.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/vercel-fn"
+      "source": "/(.*)",
+      "destination": "/api"
     }
   ]
 }
