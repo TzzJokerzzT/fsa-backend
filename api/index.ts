@@ -1,14 +1,11 @@
-import type { Hono } from 'hono';
+import { createApp } from '../src/app';
+import { loadEnv } from '../src/shared/config/env';
+import { connectDatabase } from '../src/infrastructure/persistence/mongodb/connection';
 
-let app: Hono | null = null;
+let app: ReturnType<typeof createApp> | null = null;
 
-async function getApp(): Promise<Hono> {
+async function getApp() {
   if (app) return app;
-  const { createApp } = await import('../src/app');
-  const { loadEnv } = await import('../src/shared/config/env');
-  const { connectDatabase } = await import(
-    '../src/infrastructure/persistence/mongodb/connection'
-  );
   const env = loadEnv();
   await connectDatabase(env.MONGODB_URI);
   app = createApp(env);
