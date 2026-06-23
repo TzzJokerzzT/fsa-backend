@@ -24,11 +24,12 @@ async function getApp(): Promise<Hono> {
   }
 }
 
-export default {
+// Vercel expects a default export with a fetch method
+const handler = {
   async fetch(request: Request) {
     try {
-      const app = await getApp();
-      return app.fetch(request);
+      const honoApp = await getApp();
+      return honoApp.fetch(request);
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
       return new Response(
@@ -44,3 +45,5 @@ export default {
     }
   },
 };
+
+export default handler;
