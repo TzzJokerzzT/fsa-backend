@@ -3,7 +3,12 @@
   "version": 2,
   "framework": null,
   "installCommand": "npm install",
-  "buildCommand": "npx esbuild src/vercel-entry.ts --bundle --platform=node --target=node20 --format=esm --outfile=api/index.js",
+  "buildCommand": "",
+  "functions": {
+    "api/index.ts": {
+      "includeFiles": "src/**"
+    }
+  },
   "rewrites": [
     {
       "source": "/(.*)",
