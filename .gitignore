@@ -38,3 +38,4 @@ api/index.js
 api/handler.js
 api/index.cjs
 vercel-fn.js
+api/index.mjs
