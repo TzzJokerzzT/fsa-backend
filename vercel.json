@@ -1,18 +1,14 @@
 {
   "builds": [
     {
-      "src": "src/api-entry.ts",
+      "src": "api/app.ts",
       "use": "@vercel/node"
     }
   ],
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/src/api-entry"
-    },
-    {
       "source": "/(.*)",
-      "destination": "/src/api-entry"
+      "destination": "/api/app"
     }
   ]
 }
