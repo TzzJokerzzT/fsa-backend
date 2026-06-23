@@ -5,10 +5,14 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/src/api-entry"
+      "source": "/api/(.*)",
+      "destination": "/src/api-entry"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/src/api-entry"
     }
   ]
 }
