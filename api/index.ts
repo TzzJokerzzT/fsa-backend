@@ -1,16 +1,16 @@
-import { createApp } from '../src/app';
-import { loadEnv } from '../src/shared/config/env';
-import { connectDatabase } from '../src/infrastructure/persistence/mongodb/connection';
-
-let app: ReturnType<typeof createApp> | null = null;
-
 export default {
-  async fetch(request: Request) {
-    if (!app) {
+  async fetch() {
+    try {
+      const { loadEnv } = await import('../src/shared/config/env');
       const env = loadEnv();
-      await connectDatabase(env.MONGODB_URI);
-      app = createApp(env);
+      return new Response(JSON.stringify({ ok: true, cors: env.CORS_ORIGIN }), {
+        headers: { 'content-type': 'application/json' },
+      });
+    } catch (e) {
+      return new Response(JSON.stringify({ error: String(e) }), {
+        status: 500,
+        headers: { 'content-type': 'application/json' },
+      });
     }
-    return app.fetch(request);
   },
 };
