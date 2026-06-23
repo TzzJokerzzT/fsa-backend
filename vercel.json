@@ -1,5 +1,7 @@
 {
   "framework": null,
+  "outputDirectory": "public",
+  "buildCommand": "mkdir -p public && echo ok > public/.placeholder",
   "rewrites": [
     {
       "source": "/(.*)",
