@@ -1,5 +1,5 @@
 export default {
-  async fetch(request) {
+  async fetch(request: Request) {
     return new Response(JSON.stringify({ 
       status: "ok",
       path: new URL(request.url).pathname,
