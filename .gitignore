@@ -36,4 +36,5 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 .atl/
 api/index.js
 api/handler.js
+api/index.cjs
 vercel-fn.js
